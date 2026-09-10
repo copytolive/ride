@@ -29,3 +29,9 @@ Frontend public MVP aktif. Data demo disimpan lokal pada browser. Untuk layanan 
 ## Source
 
 Static web app tanpa build step: `index.html`, `styles.css`, `features.css`, `app.js`, `features.js`, `manifest.webmanifest`, dan `sw.js`.
+
+## Super App Expansion
+
+Beranda publik sekarang menampilkan 27 modul/layanan interaktif dalam lima kelompok: Transport & Logistik, Food & Shopping, Keuangan, Benefits & Safety, dan Bisnis. Modul mencakup RIDE Motor, Car, Premium, Send, Box, Transit, Schedule, Food, Mart, Shop, Wallet, QR Pay, Top Up, Transfer, Minta Uang, Pulsa/Data, Tagihan, Plus, Rewards, Promo, Safety Center, Help, Corporate, Merchant, Driver, POS, dan Ads.
+
+Semua transaksi finansial, driver, merchant, ticketing, dan pembayaran pada versi ini tetap simulasi lokal sampai backend produksi, payment gateway, KYC, dispatch, dan partner network terhubung.

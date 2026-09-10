@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://tile.openstreetmap.org" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./superapp.css" />
   <title>RIDE — Mobilitas Harian</title>
 </head>
 <body>
@@ -30,7 +31,7 @@
       <header class="topbar">
         <div>
           <p class="eyebrow" id="greeting">Selamat datang</p>
-          <h1>Mau pergi ke mana?</h1>
+          <h1>Mau ngapain hari ini?</h1>
         </div>
         <div class="top-actions">
           <button class="wallet-pill" id="walletButton" aria-label="Buka dompet"><small>Saldo</small><b id="walletBalance">Rp125.000</b></button>
@@ -39,7 +40,26 @@
         </div>
       </header>
 
-      <section class="service-strip" aria-label="Pilihan layanan">
+      <section class="home-super-wallet" aria-label="Dompet dan membership">
+        <article class="wallet-overview-card">
+          <div class="wallet-overview-top"><div><small>RIDE WALLET</small><h2 id="superBalance">Rp125.000</h2></div><button data-super-service="wallet">Riwayat ›</button></div>
+          <div class="wallet-quick-actions">
+            <button data-super-service="pay"><span>▦</span>Bayar</button><button data-super-service="topup"><span>＋</span>Top Up</button><button data-super-service="transfer"><span>↗</span>Transfer</button><button data-super-service="bills"><span>🧾</span>Tagihan</button>
+          </div>
+        </article>
+        <article class="home-membership-card">
+          <div class="membership-row"><span class="membership-star">★</span><div><b>RIDE Plus</b><small>Diskon perjalanan & ongkir</small></div><button data-super-service="plus" id="plusStatus">Coba sekarang</button></div>
+          <div class="home-points"><span>RIDE Rewards</span><b id="homePoints">1.250 pts</b></div>
+        </article>
+      </section>
+
+      <section class="super-hub" aria-label="Semua layanan RIDE">
+        <div class="super-hub-head"><div><p class="eyebrow">RIDE SUPER APP</p><h2>Semua kebutuhan dalam satu aplikasi</h2><p>Transportasi, kirim barang, makan, belanja, pembayaran, benefit, sampai kebutuhan bisnis.</p></div><label class="service-search"><span>⌕</span><input id="serviceSearch" placeholder="Cari layanan" aria-label="Cari layanan RIDE" /></label></div>
+        <div class="super-filters"><button class="active" data-super-filter="all">Semua</button><button data-super-filter="transport">Transport & Logistik</button><button data-super-filter="shopping">Food & Shopping</button><button data-super-filter="finance">Keuangan</button><button data-super-filter="benefits">Benefits & Safety</button><button data-super-filter="business">Bisnis</button></div>
+        <div class="super-service-grid" id="serviceCatalog"></div>
+      </section>
+
+      <section class="service-strip" aria-label="Pilihan layanan cepat">
         <button class="service-card active" data-service="ride"><span class="service-icon">◉</span><b>Ride</b><small>Motor cepat</small></button>
         <button class="service-card" data-service="car"><span class="service-icon">▰</span><b>Car</b><small>Mobil nyaman</small></button>
         <button class="service-card" data-service="food"><span class="service-icon">◒</span><b>Food</b><small>Pesan makan</small></button>
@@ -90,6 +110,12 @@
         </article>
       </section>
 
+      <section class="ecosystem-grid" aria-label="Ekosistem RIDE">
+        <article class="ecosystem-card primary"><span class="eco-icon">🏢</span><h3>RIDE untuk bisnis</h3><p>Atur perjalanan karyawan, limit, voucher, merchant, POS, dan promosi dari satu ekosistem.</p><button data-super-service="corporate">Buka Corporate</button></article>
+        <article class="ecosystem-card"><span class="eco-icon">🏪</span><h3>Jadi mitra usaha</h3><p>Kelola order, produk, promosi, dan penjualan.</p><button data-super-service="merchant">Merchant Center</button></article>
+        <article class="ecosystem-card"><span class="eco-icon">🏍️</span><h3>Jadi mitra driver</h3><p>Lihat simulasi pendapatan dan proses pendaftaran mitra.</p><button data-super-service="driver">Partner Center</button></article>
+      </section>
+
       <section class="lower-grid">
         <article class="promo-card"><div><p class="eyebrow">PROMO HARI INI</p><h3>Hemat sampai 25%</h3><p>Gunakan kode <b>RIDENOW</b> untuk perjalanan pertama.</p><button id="copyPromo">Salin kode</button></div><div class="promo-orb">25%</div></article>
         <article class="activity-card"><div class="section-title"><h3>Aktivitas terbaru</h3><button id="viewAllOrders">Lihat semua</button></div><div id="recentOrders" class="recent-orders"><div class="empty-state"><span>↗</span><p>Belum ada perjalanan di perangkat ini.</p></div></div></article>
@@ -122,5 +148,6 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script src="./app.js"></script>
   <script src="./features.js"></script>
+  <script src="./superapp.js"></script>
 </body>
 </html>
