@@ -12,10 +12,101 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <link rel="stylesheet" href="./styles.css" />
   <link rel="stylesheet" href="./superapp.css" />
+  <link rel="stylesheet" href="./marketing.css" />
   <title>RIDE — Mobilitas Harian</title>
 </head>
-<body>
-  <div class="app-shell">
+<body class="marketing-mode">
+<div class="marketing-site" id="marketingSite">
+  <header class="site-header" id="siteHeader">
+    <div class="site-header-inner">
+      <a class="ride-wordmark header-wordmark" href="#top" aria-label="RIDE Beranda"><svg viewBox="0 0 112 32" role="img" aria-label="RIDE"><text x="0" y="26" fill="currentColor" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="30" font-weight="900" textLength="112" lengthAdjust="spacingAndGlyphs">RIDE</text></svg></a>
+      <nav class="site-nav" aria-label="Navigasi situs">
+        <a href="#top">Beranda</a>
+        <a class="has-chevron" href="#join">Gabung jadi Mitra</a>
+        <a href="#business">R Corp</a>
+        <a href="#business">R Ads</a>
+        <a href="#join">Karir</a>
+        <a class="has-chevron" href="#scale">Perusahaan</a>
+        <a href="#products">Produk</a>
+        <a href="#benefits">Blog</a>
+        <a href="#footer">Bantuan</a>
+        <button class="has-chevron nav-language" type="button">ID</button>
+      </nav>
+      <button class="site-menu" id="siteMenu" aria-label="Buka menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+    <nav class="mobile-drawer" id="mobileDrawer" aria-label="Navigasi mobile">
+      <a href="#top">Beranda</a>
+      <a class="has-chevron" href="#join">Gabung jadi Mitra</a>
+      <a href="#business">R Corp</a>
+      <a href="#business">R Ads</a>
+      <a href="#join">Karir</a>
+      <a class="has-chevron" href="#scale">Perusahaan</a>
+      <a href="#products">Produk</a>
+      <a href="#benefits">Blog</a>
+      <a href="#footer">Bantuan</a>
+      <button class="has-chevron" type="button">ID</button>
+    </nav>
+  </header>
+
+  <main class="marketing-main" id="top">
+    <section class="m-hero" aria-label="RIDE Super App">
+      <div class="hero-visual"><div class="hero-road"></div></div>
+      <div class="hero-card hc1"><span class="hicon">🏍️</span><div><strong>RIDE Motor</strong><small>Driver dekat · 3 menit</small></div></div>
+      <div class="hero-card hc2"><span class="hicon">🍜</span><div><strong>RIDE Food</strong><small>Favoritmu diantar</small></div></div>
+      <div class="hero-card hc3"><span class="hicon">◈</span><div><strong>RIDE Wallet</strong><small>Bayar jadi ringkas</small></div></div>
+      <div class="hero-phone" aria-hidden="true"><div class="phone-notch"></div><div class="phone-head">Mau ngapain hari ini?</div><div class="phone-wallet"><small>RIDE Wallet</small><b>Rp125.000</b><div class="phone-actions"><span>▦ Bayar</span><span>＋ Top Up</span><span>↗ Transfer</span></div></div><div class="phone-grid"><div><span>🏍️</span>Motor</div><div><span>🚗</span>Car</div><div><span>🍜</span>Food</div><div><span>📦</span>Send</div><div><span>🛒</span>Mart</div><div><span>▦</span>Bayar</div><div><span>★</span>Plus</div><div><span>＋</span>Lainnya</div></div></div>
+      <div class="hero-copy"><p>SEMUA KEBUTUHAN, SATU APLIKASI</p><h1>Gerak, makan, kirim, dan bayar dalam satu RIDE.</h1><button data-open-app>Buka aplikasi RIDE</button></div>
+    </section>
+
+    <section class="m-title-dark"><div class="m-container"><h2>Menghadirkan solusi untuk membantu keseharian berjalan lebih mudah</h2><p>Dari perjalanan singkat sampai kebutuhan bisnis, RIDE menyatukan layanan harian dalam satu ekosistem.</p><button class="pill-link" data-open-app>Gabung dan coba RIDE</button></div></section>
+    <section class="award-strip"><div class="h-scroll"><article class="award-card"><span class="award-icon">🏆</span><div><strong>Pengalaman mobilitas yang sederhana</strong><p>Alur pesan, lacak, bayar, dan riwayat dibuat konsisten dari satu aplikasi.</p></div></article><article class="award-card"><span class="award-icon">🛡️</span><div><strong>Safety-first dari awal perjalanan</strong><p>Kontak darurat, identitas driver, dan status perjalanan disiapkan dalam satu pusat keamanan.</p></div></article><article class="award-card"><span class="award-icon">🌱</span><div><strong>Teknologi untuk kota yang bergerak</strong><p>Arsitektur produk disiapkan untuk transportasi, logistik, merchant, dan pembayaran.</p></div></article><article class="award-card"><span class="award-icon">⚡</span><div><strong>Responsif di desktop dan mobile</strong><p>Satu pengalaman publik yang cepat, konsisten, dan mudah dipahami.</p></div></article></div></section>
+
+    <section id="scale" class="m-title-light"><div class="m-container"><h2>Skala kami</h2><p>Satu platform untuk pelanggan, mitra driver, merchant, dan bisnis.</p><a class="pill-link" href="#join">Gabung</a></div></section>
+    <section class="scale-section"><div class="m-container scale-grid"><article class="scale-card"><span>📍</span><div><strong>24/7</strong><p>RIDE dirancang untuk kebutuhan perjalanan dan layanan harian kapan saja.</p></div></article><article class="scale-card"><span>🏍️</span><div><strong>Multi-service</strong><p>Motor, mobil, logistik, makanan, belanja, wallet, dan layanan bisnis.</p></div></article><article class="scale-card"><span>🏪</span><div><strong>1 ekosistem</strong><p>Pelanggan, driver, merchant, dan perusahaan bertemu dalam satu platform.</p></div></article></div></section>
+
+    <section id="join" class="m-title-light"><div class="m-container"><h2>#SelaluAdaJalan tumbuh bersama RIDE</h2></div></section>
+    <section class="join-section"><div class="m-container join-grid"><article class="join-card"><span class="join-icon">🚀</span><h3>Gabung jadi tim RIDE</h3><p>Bangun produk yang mempermudah aktivitas jutaan perjalanan dan transaksi harian.</p><a href="#footer">Selengkapnya →</a></article><article class="join-card"><span class="join-icon">🏍️</span><h3>Gabung jadi Mitra Driver</h3><p>Kelola perjalanan, status online, pendapatan, dan dukungan mitra dalam satu aplikasi.</p><a href="#products">Selengkapnya →</a></article><article class="join-card"><span class="join-icon">🏪</span><h3>Gabung jadi Mitra Usaha</h3><p>Jangkau pelanggan, kelola menu, pesanan, promosi, dan pembayaran lebih mudah.</p><a href="#business">Selengkapnya →</a></article></div></section>
+
+    <section id="benefits" class="m-title-light"><div class="m-container"><h2>Jadi bagian RIDE itu beda karena...</h2></div></section>
+    <section class="benefit-section"><div class="benefit-scroll"><article class="benefit-card"><div class="benefit-art">🛡️</div><h3>Perlindungan perjalanan</h3><p>Fitur keselamatan dan dukungan dibuat mudah ditemukan ketika dibutuhkan.</p></article><article class="benefit-card"><div class="benefit-art">🎁</div><h3>Benefit dan rewards</h3><p>Promo, poin, membership, dan benefit tersusun dalam satu tempat.</p></article><article class="benefit-card"><div class="benefit-art">🤝</div><h3>Ekosistem kolaboratif</h3><p>Pelanggan, driver, merchant, dan bisnis saling terhubung melalui RIDE.</p></article><article class="benefit-card"><div class="benefit-art">💚</div><h3>Dukungan yang manusiawi</h3><p>Pusat bantuan dan status layanan dirancang sederhana dan mudah dipahami.</p></article></div></section>
+
+    <section id="products" class="innovation-wrap"><div class="m-title-dark"><div class="m-container"><h2>Kami menghadirkan inovasi untuk membantu kamu menjalani hari dengan lebih mudah</h2></div></div><div class="product-scroll"><article class="product-card"><div class="product-symbols">🏍️ 🚗 📦</div><div><h3>Transportasi & Logistik</h3><p>RIDE Motor, Car, Premium, Send, Box, Transit, dan perjalanan terjadwal.</p><button data-open-app data-service-jump="ride">Buka layanan</button></div></article><article class="product-card"><div class="product-symbols">🍜 🛒</div><div><h3>Makanan & Belanja</h3><p>Pesan makanan, kebutuhan harian, dan titip belanja dalam satu alur.</p><button data-open-app data-service-jump="food">Buka layanan</button></div></article><article class="product-card"><div class="product-symbols">◈ ▦ ↗</div><div><h3>Dompet Digital</h3><p>Wallet, top up, transfer, bayar, tagihan, pulsa, dan riwayat transaksi.</p><button data-open-app data-service-jump="wallet">Buka layanan</button></div></article><article id="business" class="product-card"><div class="product-symbols">🏢 🏪 📣</div><div><h3>Solusi Bisnis</h3><p>Corporate, merchant, POS, driver partner, dan promosi usaha.</p><button data-open-app data-service-jump="corporate">Buka layanan</button></div></article></div></section>
+
+    <section class="download-hero"><div class="m-container download-copy"><h2>Belum mencoba RIDE? Buka aplikasinya sekarang juga.</h2><div class="store-row"><button class="store-badge" data-open-app><span>▶</span><div><small>BUKA SEKARANG</small><b>RIDE Web App</b></div></button><button class="store-badge" data-open-app><span>⌁</span><div><small>INSTALLABLE</small><b>RIDE PWA</b></div></button></div></div></section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="footer-primary m-container">
+      <div class="footer-core">
+        <a class="ride-wordmark footer-wordmark" href="#top" aria-label="RIDE Beranda"><svg viewBox="0 0 112 32" role="img" aria-label="RIDE"><text x="0" y="26" fill="currentColor" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="30" font-weight="900" textLength="112" lengthAdjust="spacingAndGlyphs">RIDE</text></svg></a>
+        <div class="footer-menu-grid">
+          <div class="footer-menu-container"><p class="footer-title">Perusahaan</p><ul><li><a href="#scale">Tentang</a></li><li><a href="#products">Produk</a></li><li><a href="#benefits">Blog</a></li></ul></div>
+          <div class="footer-menu-container"><p class="footer-title">Gabung</p><ul><li><a href="#join">Mitra Driver</a></li><li><a href="#join">Mitra Usaha</a></li></ul></div>
+          <div class="footer-menu-container"><p class="footer-title">Karir</p><ul><li><a href="#join">Pelajar</a></li><li><a href="#join">Professional</a></li></ul></div>
+          <div class="footer-menu-container"><p class="footer-title">Hubungi kami</p><ul><li><a href="#footer">Bantuan</a></li><li><a href="#footer">Lokasi Kami</a></li></ul></div>
+          <div class="footer-menu-container footer-desktop-connect"><p class="footer-title">Connect with Us</p><div class="footer-icon-grid social-icons"><a href="#footer" aria-label="Facebook">f</a><a href="#footer" aria-label="X">𝕏</a><a href="#footer" aria-label="Instagram">◎</a><a href="#footer" aria-label="YouTube">▶</a></div><p class="footer-title footer-download-title">Download the app</p><div class="footer-icon-grid app-icons"><button data-open-app aria-label="Buka RIDE Web">R</button><button data-open-app aria-label="Install RIDE PWA">⌁</button></div></div>
+        </div>
+      </div>
+      <div class="footer-mobile-connect">
+        <div class="footer-mobile-social"><p class="footer-title">Connect with Us</p><div class="footer-mobile-social-grid"><a href="#footer" aria-label="Facebook">f</a><a href="#footer" aria-label="X">𝕏</a><a href="#footer" aria-label="Instagram">◎</a><a href="#footer" aria-label="YouTube">▶</a></div></div>
+        <p class="footer-title footer-mobile-download-title">Download the app</p>
+        <div class="footer-mobile-store"><button data-open-app><span>R</span>RIDE Web App</button><button data-open-app><span>⌁</span>Install RIDE PWA</button></div>
+      </div>
+    </div>
+    <div class="footer-legal-shell">
+      <div class="m-container footer-legal">
+        <div class="footer-legal-links"><a href="#footer">Pemberitahuan Privasi</a><a href="#footer">Syarat dan Ketentuan</a><a href="#footer">Atribusi Data</a><button type="button" data-cookie-open>Pengaturan Cookie</button></div>
+        <div class="footer-select-grid"><button type="button">Indonesia <span>⌄</span></button><button type="button">Bahasa Indonesia <span>⌄</span></button></div>
+      </div>
+    </div>
+    <div class="m-container footer-copyright">© 2026 RIDE | RIDE adalah demo produk publik milik CopyToLive. Nama, identitas visual, dan konten RIDE berdiri sendiri dan tidak berafiliasi dengan Gojek.</div>
+  </footer>
+
+  <div class="cookie-card" id="cookieCard"><div><strong>Privasi kamu penting</strong><p>RIDE memakai penyimpanan lokal untuk demo wallet, pesanan, dan preferensi. Tidak ada transaksi uang nyata pada versi ini.</p></div><div class="cookie-actions"><button id="cookieManage">Kelola</button><button class="accept" id="cookieAccept">Terima Semua</button></div></div>
+</div>
+
+  <div class="app-shell" id="rideApp">
+    <button class="back-site" id="backToSite" aria-label="Kembali ke situs RIDE">← Kembali ke situs</button>
     <aside class="desktop-sidebar" aria-label="Navigasi utama">
       <a class="brand" href="#home" aria-label="RIDE Home"><span class="brand-mark">R</span><strong>RIDE</strong></a>
       <nav class="side-nav">
@@ -149,5 +240,6 @@
   <script src="./app.js"></script>
   <script src="./features.js"></script>
   <script src="./superapp.js"></script>
+  <script src="./marketing.js"></script>
 </body>
 </html>
