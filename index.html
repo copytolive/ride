@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0a7a4b" />
+  <meta name="description" content="RIDE — aplikasi mobilitas, pesan kendaraan, kirim barang, dan layanan harian dalam satu aplikasi." />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://unpkg.com" />
+  <link rel="preconnect" href="https://tile.openstreetmap.org" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="/styles.css" />
+  <title>RIDE — Mobilitas Harian</title>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="desktop-sidebar" aria-label="Navigasi utama">
+      <a class="brand" href="#home" aria-label="RIDE Home"><span class="brand-mark">R</span><strong>RIDE</strong></a>
+      <nav class="side-nav">
+        <button class="nav-item active" data-nav="home"><span>⌂</span>Beranda</button>
+        <button class="nav-item" data-nav="orders"><span>≡</span>Pesanan</button>
+        <button class="nav-item" data-nav="wallet"><span>◈</span>Dompet</button>
+        <button class="nav-item" data-nav="profile"><span>○</span>Profil</button>
+      </nav>
+      <div class="side-note"><span class="live-dot"></span><div><b>RIDE Public</b><small>Demo layanan aktif</small></div></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="greeting">Selamat datang</p>
+          <h1>Mau pergi ke mana?</h1>
+        </div>
+        <div class="top-actions">
+          <button class="wallet-pill" id="walletButton" aria-label="Buka dompet"><small>Saldo</small><b id="walletBalance">Rp125.000</b></button>
+          <button class="icon-button" id="notificationButton" aria-label="Notifikasi">●</button>
+          <button class="avatar" id="profileButton" aria-label="Profil">CT</button>
+        </div>
+      </header>
+
+      <section class="service-strip" aria-label="Pilihan layanan">
+        <button class="service-card active" data-service="ride"><span class="service-icon">◉</span><b>Ride</b><small>Motor cepat</small></button>
+        <button class="service-card" data-service="car"><span class="service-icon">▰</span><b>Car</b><small>Mobil nyaman</small></button>
+        <button class="service-card" data-service="food"><span class="service-icon">◒</span><b>Food</b><small>Pesan makan</small></button>
+        <button class="service-card" data-service="send"><span class="service-icon">◇</span><b>Send</b><small>Kirim paket</small></button>
+        <button class="service-card" data-service="mart"><span class="service-icon">▦</span><b>Mart</b><small>Kebutuhan harian</small></button>
+        <button class="service-card" data-service="more"><span class="service-icon">＋</span><b>Lainnya</b><small>Semua layanan</small></button>
+      </section>
+
+      <section class="booking-layout">
+        <article class="booking-card">
+          <div class="card-heading">
+            <div><p class="eyebrow">PESAN PERJALANAN</p><h2 id="bookingTitle">RIDE Motor</h2></div>
+            <span class="demo-badge">DEMO</span>
+          </div>
+
+          <div class="location-stack">
+            <div class="location-row"><span class="pin pickup"></span><div><label>Jemput</label><input id="pickupInput" value="Lokasi saya" autocomplete="off" /></div><button id="locateButton" class="mini-button" title="Gunakan lokasi saya">⌖</button></div>
+            <div class="location-line"></div>
+            <div class="location-row"><span class="pin destination"></span><div><label>Tujuan</label><input id="destinationInput" placeholder="Pilih di peta atau ketik tujuan" autocomplete="off" /></div><button id="clearDestination" class="mini-button" title="Hapus tujuan">×</button></div>
+          </div>
+
+          <div class="map-helper"><span>Tip:</span> setelah lokasi jemput terdeteksi, klik peta untuk menentukan tujuan.</div>
+
+          <div class="estimate" id="estimatePanel">
+            <div><small>Jarak</small><b id="distanceValue">—</b></div>
+            <div><small>Estimasi</small><b id="durationValue">—</b></div>
+            <div><small>Harga</small><b id="fareValue">—</b></div>
+          </div>
+
+          <div class="ride-options" id="rideOptions">
+            <button class="ride-option active" data-tier="hemat" data-multiplier="1"><span class="vehicle">●</span><span><b>Hemat</b><small>1 penumpang · ETA 3–6 mnt</small></span><strong data-price>—</strong></button>
+            <button class="ride-option" data-tier="prioritas" data-multiplier="1.25"><span class="vehicle">◉</span><span><b>Prioritas</b><small>Driver pilihan · ETA 2–4 mnt</small></span><strong data-price>—</strong></button>
+            <button class="ride-option" data-tier="comfort" data-multiplier="1.55"><span class="vehicle">◎</span><span><b>Comfort</b><small>Perjalanan lebih nyaman</small></span><strong data-price>—</strong></button>
+          </div>
+
+          <div class="payment-row"><span>◈</span><div><small>Pembayaran</small><b>RIDE Wallet</b></div><button id="changePayment">Ubah</button></div>
+          <button class="primary-cta" id="bookButton" disabled>Tentukan tujuan dulu</button>
+          <p class="booking-note">Versi publik ini adalah MVP interaktif. Pemesanan belum mengirim order ke armada sungguhan.</p>
+        </article>
+
+        <article class="map-card">
+          <div id="map" aria-label="Peta perjalanan"></div>
+          <div class="map-toolbar">
+            <button id="mapLocate">⌖ <span>Lokasi saya</span></button>
+            <div class="map-legend"><span><i class="legend-dot green"></i>Jemput</span><span><i class="legend-dot red"></i>Tujuan</span></div>
+          </div>
+          <div class="driver-chip" id="driverChip"><span class="driver-avatar">AR</span><div><small>Driver terdekat</small><b>Ardi · 4.9 ★</b></div><span>3 mnt</span></div>
+        </article>
+      </section>
+
+      <section class="lower-grid">
+        <article class="promo-card"><div><p class="eyebrow">PROMO HARI INI</p><h3>Hemat sampai 25%</h3><p>Gunakan kode <b>RIDENOW</b> untuk perjalanan pertama.</p><button id="copyPromo">Salin kode</button></div><div class="promo-orb">25%</div></article>
+        <article class="activity-card"><div class="section-title"><h3>Aktivitas terbaru</h3><button id="viewAllOrders">Lihat semua</button></div><div id="recentOrders" class="recent-orders"><div class="empty-state"><span>↗</span><p>Belum ada perjalanan di perangkat ini.</p></div></div></article>
+      </section>
+    </main>
+
+    <nav class="mobile-nav" aria-label="Navigasi bawah">
+      <button class="active" data-nav="home"><span>⌂</span><small>Beranda</small></button>
+      <button data-nav="orders"><span>≡</span><small>Pesanan</small></button>
+      <button data-nav="wallet"><span>◈</span><small>Dompet</small></button>
+      <button data-nav="profile"><span>○</span><small>Profil</small></button>
+    </nav>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="match-modal" role="dialog" aria-modal="true" aria-labelledby="matchTitle">
+      <button class="modal-close" id="modalClose" aria-label="Tutup">×</button>
+      <div class="search-ring"><div class="search-core">R</div></div>
+      <p class="eyebrow">PENCARIAN DRIVER</p>
+      <h2 id="matchTitle">Mencari driver terdekat…</h2>
+      <p id="matchText">Kami sedang mencocokkan perjalanan Anda dengan driver di sekitar titik jemput.</p>
+      <div class="match-progress"><span id="matchProgress"></span></div>
+      <div class="matched-driver" id="matchedDriver" hidden><span class="driver-avatar large">AR</span><div><small>Driver ditemukan</small><b>Ardi Rahman · 4.9 ★</b><p>Honda Vario · B 4821 RDE</p></div><strong>3 mnt</strong></div>
+      <button class="secondary-cta" id="cancelBooking">Batalkan</button>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="/app.js"></script>
+</body>
+</html>
