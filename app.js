@@ -184,5 +184,5 @@
   }
 
   setGreeting(); initMap(); wireEvents(); renderOrders(); updateEstimate();
-  if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+  if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
 })();
